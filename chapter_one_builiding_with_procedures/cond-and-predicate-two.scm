@@ -35,10 +35,10 @@
 (define (is-good-enough guess x) (< (abs (- (sqr guess) x)) 0.001)) ; here we square the guess and subtract the value x from it, take the absolute value of that and see if it is less than what we have defined for our tolerance
 
 (define (sqrt-recursive guess x) (
-        if (is-good-enough guess x)
-            guess ; if the guess is close enough, return the guess as correct
-            (sqrt-recursive (improve guess x) x) ; if it is not, we need to recalculate the guess and then call the function again
-    )
+    if (is-good-enough guess x)
+      guess ; if the guess is close enough, return the guess as correct
+      (sqrt-recursive (improve guess x) x) ; if it is not, we need to recalculate the guess and then call the function again
+  )
 )
 
 (define (sqrt x) (sqrt-recursive 1.0 x)) ; here we have a hardcoded helper to get things started. here we assume the square root is one
@@ -70,3 +70,7 @@
 ; or at least, we should be able to do that. it's throwing me an unbound variable error, and the error messages are kind of terrible in scheme, so i'm just gonna peace on that.
 
 ; So i've worked through this part kind of okay. i need a better handling on the scoping and how exactly the evaluator works. but that will come with time.
+
+(define a (string " howdy"))
+
+(display a)
