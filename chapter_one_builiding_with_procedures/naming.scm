@@ -10,4 +10,4 @@
 ;define is known as a special form. they are shorthands hard coded into the programming language to allow us to be able to actually, you know, do stuff
 
 ; + and * are also special forms
-; list syntax is pretty dang simple, compared to a lot of other languages
+; lisp syntax is pretty dang simple, compared to a lot of other languages

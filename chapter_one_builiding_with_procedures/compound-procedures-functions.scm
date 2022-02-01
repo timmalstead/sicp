@@ -22,4 +22,7 @@
 ; when a calling of a compound prodecure is evaluated, a function remember, it evaluates the body of the procedure with each parameter of the compound procedure replaced by the corresponding argument.
 ; this is called the substitution model
 ; this is a way of thinking about the interpreter and compiler that is useful for now
+
 ; okay, i get why they used this language, it does break it down
+
+; I think that the Applicative order versus normal order section could be mapped on to normal, evaluative recursion vs tail recursion? But I'd be lying if I said I knew that exactly
