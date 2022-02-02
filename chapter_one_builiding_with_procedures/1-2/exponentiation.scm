@@ -8,7 +8,7 @@
         (* bs (exp-recur bs (- ex 1)))
     )
 )
-(exp-recur 4 3)
+; (exp-recur 4 3)
 
 (define (exp-iter bs i product) (
         if (= i 0)
@@ -23,10 +23,24 @@
 
 (define (exponent bs ex) ( exp-iter bs ex 1 ))
 
-(exponent 4 3)
+; (exponent 4 3)
 ; alright, not bursting with pride over this fact but i had to look up how to do the iterative version. the trick is to use the exponent as the iterator and keep track of the product in a separate variable
 
 ; the iterable fashion will be tail recursive, so less work for your poor computer
 
 ; again, it is keeping track of the FINAL PRODUCT as it evolves
 ; it needs less space
+
+(define (even? n) (= (remainder n 2) 0))
+
+(define (fast-exp bs ex) (
+    cond
+        ((= ex 0) 1)
+        ((even? ex) (square (fast-exp bs (/ ex 2))))
+        (else (* bs (fast-exp bs (- ex 1))))
+    )
+)
+
+(fast-exp 3 3)
+
+; can we design an iterative version of the linear recursive procedure above? we could add an invariant quantity to do so, yes?
