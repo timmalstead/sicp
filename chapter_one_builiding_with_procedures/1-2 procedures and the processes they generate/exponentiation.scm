@@ -44,3 +44,9 @@
 (fast-exp 3 3)
 
 ; can we design an iterative version of the linear recursive procedure above? we could add an invariant quantity to do so, yes?
+
+; again, perhaps that will be in an upcoming read of this book
+
+; for now, the big takeaway is that all iteration is recursion but not all recursion is iteration. cannot say that enough
+
+;linear recursive processes wait until the base case is read to do the actual computation whereas linear iterative process keep track of the computation at each step. usually this is done with the introduction of a state variable to keep track of the results.
