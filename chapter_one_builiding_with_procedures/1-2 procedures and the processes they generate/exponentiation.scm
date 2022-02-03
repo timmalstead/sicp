@@ -3,7 +3,7 @@
 ; write a procedure that takes a base number bs and and an exponent ex, do this in a linear recursive style. remember this involves a product, so multiplication
 
 (define (exp-recur bs ex) (
-        if (= ex 0)
+    if (= ex 0)
         1
         (* bs (exp-recur bs (- ex 1)))
     )
@@ -11,13 +11,13 @@
 ; (exp-recur 4 3)
 
 (define (exp-iter bs i product) (
-        if (= i 0)
-            product
-            (exp-iter
-                bs
-                (- i 1)
-                (* bs product)
-            )
+    if (= i 0)
+        product
+        (exp-iter
+            bs
+            (- i 1)
+            (* bs product)
+        )
     )
 )
 
