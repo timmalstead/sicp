@@ -7,7 +7,7 @@
 (define (sum-ints-recur a b) (
     if (> a b)
         0
-        (+ a (sum-ints (+ a 1) b))
+        (+ a (sum-ints-recur (+ a 1) b))
     )
 )
 
@@ -21,7 +21,7 @@
 
 ; 3 + 4 + 5 + 6 + 7 = 25
 
-(sum-int-range 1 4)
+(sum-int-range 3 7)
 
 ; i made it into an iterative process!
 
