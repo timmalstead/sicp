@@ -16,6 +16,7 @@
 (define (start-segment seg) (car seg))
 (define (end-segment seg) (cdr seg))
 
+(define (avg-points a b) (/ (+ a b) 2.0))
 
 ; (let* ((a 1) (b 1) (c (* a b))) c)
 (define (avg-segment seg) 
@@ -27,8 +28,8 @@
             (start-y (y-point start))
             (end-x (x-point end))
             (end-y (y-point end))
-            (avg-x (/ (+ start-x end-x) 2.0))
-            (avg-y (/ (+ start-y end-y) 2.0))
+            (avg-x (avg-points start-x end-x))
+            (avg-y (avg-points start-y end-y))
         )
         (make-point avg-x avg-y)
     )
@@ -43,3 +44,4 @@
 ; okay, had to learn about how closure works in scheme. the special form let cannot be called multiple times to work on variables iteratively, use let* and then you can reference variables after they have been made. i would be lying if i said i understood this completely
 
 ; so we see we can make a function by breaking it down to constructors and selectors
+
