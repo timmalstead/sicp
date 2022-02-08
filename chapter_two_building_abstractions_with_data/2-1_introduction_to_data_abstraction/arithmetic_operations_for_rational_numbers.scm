@@ -138,4 +138,26 @@
 (mul-rat one-half (make-rat 1 3))
 
 ; we can even modify our CONSTRUCTOR make-rat to reduce our primitives to their lowest terms by using the gcd function we wrote previously
+
 ; this is definitely a different way of doing things, and i imagine it will take a while to really get it
+
+; again, it is important to underline the pattern of a CONSTRUCTOR make-rat and our SELECTORS numer and denom
+
+; we could break down the package that we have written thusly
+
+;--programs that use rational numbers--
+;  procedures for public use to manipulate rational numbers
+;-- add-rat sub-mat mul-rat div-rat equal-rat? --
+; rational numbers made using pairs
+;-- make-rat numer denom --
+;global methods used to make the rational numbers using pairs
+; cons car cdr
+; primitives
+
+; construct these methods with care for how often operations have to happen. for example, you could break the rational numbers down to their lowest terms when using the SELECTORS, but you would have to do that every time. it's better to get it over with in the CONSTRUCTOR and have it done and in memory for when you need it
+
+; either way you choose to do it, that part of the program is discrete from the public methods and they will not need to be changed
+
+; by only exposing the public procedures and the constructor, we free up mind space for the user. how does the rational number get made and how are elements of it accessed and modified? the user neither knows nor cares, all that matters for them is that the numerator and the denominator are supplied to make the rational numbers, and then the operations are performed and returned. that's as it should be
+
+; abstraction also allows us to get work done on a project while deferring tough decisions about it's construction. don't know when to compute the gcd? that's fine, mull it over as you work on other stuff
