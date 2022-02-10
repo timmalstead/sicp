@@ -123,3 +123,54 @@
 (define (return-the-list a b . c) c)
 
 (return-the-list 1 2 3 4 5 6 7) ; -> (3 4 5 6 7)
+
+; map is a lot like it is in js, except that it is not a method, but a global procedure that takes two arguments, the procedure to apply to each element and the list to apply it to
+
+(define nums (list 1 2 3 4))
+(define (add-one x) (+ x 1))
+(map add-one nums)
+(map (lambda (x) (+ x 1)) nums)
+
+; as in js, a map can be done with an unnamed function (lambda) or a named function
+
+; also as in js there is a for-each method that is used to perform effects with iterable lists
+
+(for-each (lambda (x) (newline) (display x)) nums)
+
+;Here are two different definitions of square-list. Complete both of them by filling in the missing expressions:
+
+(define (square-list-iter items new-items)
+    (cond
+        ((null? items) new-items)
+        ((null? new-items)
+            (square-list-iter
+                (cdr items)
+                (list (* (car items) (car items)))
+            )
+        )
+        (else 
+            (square-list-iter
+                (cdr items)
+                (cons (* (car items) (car items)) new-items)
+            )
+        )
+    )
+)
+
+(define (square-list items)
+    (
+        reverse (square-list-iter items ())
+    )
+)
+
+(define (square-list-map items)
+    (map
+        (lambda (x) (* x x))
+        items
+    )
+)
+
+(square-list-map nums)
+(square-list nums)
+
+; funnily enough, i didn't understand the linear recursive squaring function, so i wrote it iteratively and the fact that that returned reversed is the subject of the next exercise. i will not do that now, i'm gonna rest my brain to prepare for heirarchial data structures
